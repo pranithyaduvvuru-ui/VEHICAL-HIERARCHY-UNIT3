@@ -1,0 +1,70 @@
+import java.util.*;
+class Vehicle {
+String make;
+String model;
+int year;
+Vehicle(String make, String model, int year) {
+this.make = make;
+this.model = model;
+this.year = year;
+}
+void displayVehicleInfo() {
+System.out.println("Vehicle Details:");
+System.out.println("Make: " + make);
+System.out.println("Model: " + model);
+System.out.println("Year: " + year);
+}
+}
+class Car extends Vehicle {
+int numberOfDoors;
+String fuelType;
+Car(String make, String model, int year, int numberOfDoors, String fuelType) {
+super(make, model, year);
+this.numberOfDoors = numberOfDoors;
+this.fuelType = fuelType;
+}
+void displayCarInfo() {
+System.out.println("Car Details:");
+System.out.println("Number of Doors: " + numberOfDoors);
+System.out.println("Fuel Type: " + fuelType);
+}
+}
+class Bike extends Vehicle {
+String bikeType;
+int engineCapacity;
+Bike(String make, String model, int year, String bikeType, int engineCapacity) {
+super(make, model, year);
+this.bikeType = bikeType;
+this.engineCapacity = engineCapacity;
+}
+void displayBikeInfo() {
+System.out.println("Bike Details:");
+System.out.println("Bike Type: " + bikeType);
+System.out.println("Engine Capacity: " + engineCapacity + " cc");
+}
+}
+public class Solution {
+public static void main(String[] args) {
+Scanner s = new Scanner(System.in);
+String type = s.nextLine();
+String make = s.nextLine();
+String model = s.nextLine();
+int year = s.nextInt();
+s.nextLine();
+if (type.equalsIgnoreCase("car")) {
+int doors = s.nextInt();
+s.nextLine();
+String fuel = s.nextLine();
+Car car = new Car(make, model, year, doors, fuel);
+car.displayVehicleInfo();
+car.displayCarInfo();
+}
+else if (type.equalsIgnoreCase("bike")) {
+String bikeType = s.nextLine();
+int engine = s.nextInt();
+Bike bike = new Bike(make, model, year, bikeType, engine);
+bike.displayVehicleInfo();
+bike.displayBikeInfo();
+}
+}
+}
